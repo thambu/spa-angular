@@ -1,0 +1,51 @@
+<div class="container">
+
+<mat-toolbar>
+    <span class="fill-remaining-space"></span>
+    <span>Add Book</span>
+    <span class="fill-remaining-space"></span>
+  </mat-toolbar>
+
+<form class="book-form" novalidate [formGroup]="bookForm" (ngSubmit) = "addBook(bookForm)"
+      fxLayout="column wrap" fxLayoutAlign="center" fxLayoutGap="10px">
+    <div class="controles-container">
+    <mat-form-field>
+      <input matInput placeholder="Title"
+             formControlName="title" id="title" maxlength="30"
+             name = "title"/>
+        <mat-error *ngIf="hasError('title', 'required')">Title is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-select placeholder="Select" formControlName="category"
+                  id="category"
+                  name = "category">
+        <mat-option selected>-- Select --</mat-option>
+        <mat-option value="drama">Drama</mat-option>
+        <mat-option value="comedy">Comedy</mat-option>
+        <mat-option value="sport">Sport</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+       <textarea matInput placeholder="Description" formControlName="description"
+                 id="description"
+                 name = "description">
+       </textarea>
+      <mat-error *ngIf="hasError('description', 'required')">Description is required</mat-error>
+    </mat-form-field>
+
+      <div class="button">
+          <mat-card-actions>
+              <button mat-raised-button>Add</button>
+          </mat-card-actions>
+      </div>
+     </div>
+
+</form>
+</div>
+<br>
+<br>
+<br>
+<app-booklist [books] = books></app-booklist>
+
