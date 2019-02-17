@@ -10,12 +10,13 @@ import { BookService } from '../service/BookService.service';
 })
 export class BooklistComponent implements OnInit {
 
-  @Input() books: any[] = [];
+  @Input() books: Book[] = [];
 
   constructor(private bookService: BookService) { }
 
   ngOnInit() {
-    this.bookService.getBooks().subscribe((data : any[])=>{
+    console.log('inside list')
+    this.bookService.getBooks().subscribe((data : Book[])=>{
         console.log(data);
         this.books = data;
     })

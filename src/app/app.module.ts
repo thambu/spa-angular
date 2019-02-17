@@ -10,8 +10,8 @@ import { MaterialModule } from './material/material.module';
 import { DataService } from './service/Data.service';
 
 import { AppComponent } from './app.component';
-import { BookComponent } from './book/book.component';
-import { BooklistComponent } from './booklist/booklist.component';
+import { BookComponent } from './book/Book.component';
+import { BooklistComponent } from './booklist/BookList.component';
 
 @NgModule({
   declarations: [

@@ -13,7 +13,8 @@ export class BookComponent implements OnInit {
 
   bookForm: FormGroup;
   submitted = false;
-  books = [];
+  books: any[]= [];
+  id: number ;
 
   constructor(private formBuilder: FormBuilder, private bookService: BookService) { }
 
@@ -33,7 +34,17 @@ export class BookComponent implements OnInit {
       if(this.bookForm.valid) {
       console.log(this.bookForm.value);
       //this.books.push(this.bookForm.value);
-      return this.bookService.addBook(this.bookForm.value);
+      return this.bookService.addBook(this.bookForm.value, this.id).subscribe (data=> {
+          this.getBooks();
+      });
      }
     }
+
+  getBooks() {
+   this.bookService.getBooks().subscribe((data : Book[])=>{
+        console.log(data);
+        this.books = data;
+        this.id = data.length + 1;
+    })
+  }
 }

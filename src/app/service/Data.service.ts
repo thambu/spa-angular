@@ -12,7 +12,7 @@ export class DataService implements InMemoryDbService{
   constructor() { }
 
   createDb(){
-   let  books =  [ {title: 'Rajkumar', category:'Drama', description:'Tested'}];
+   let  books =  [ {id : 1, title: 'Rajkumar', category:'Drama', description:'Tested'}];
    return {books};
   }
 }

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Http, Headers, Response } from '@angular/http';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -18,20 +19,16 @@ export class BookService {
 
   constructor(private httpClient: HttpClient) { }
 
-  public getBooks() {
+  getBooks() {
         return this.httpClient.get(this.SERVER_URL + 'books');
   }
 
-  addBook(book: {title: string, category: string, description: string}){
+  addBook(book: {title: string, category: string, description: string}, id:number){
     console.log(book);
+    book.id = id;
     return this.httpClient.post(this.SERVER_URL + 'books', book);
   }
 
-  /*insertPlayer(player: BasketballPlayer): Observable<BasketballPlayer> {
-        return this.http.post(this.playersUrl, JSON.stringify(player), { headers: this.headers })
-                        .map(response => response.json() as BasketballPlayer)
-                        .catch(this.handleError);
-    }*/
 
   private handleError(response: Response): Observable<any> {
         let errorMessage = `${response.status} - ${response.statusText}`;
