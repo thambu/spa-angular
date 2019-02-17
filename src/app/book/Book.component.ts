@@ -14,7 +14,7 @@ export class BookComponent implements OnInit {
   bookForm: FormGroup;
   submitted = false;
   books: any[]= [];
-  id: number ;
+  id: number = 1;
 
   constructor(private formBuilder: FormBuilder, private bookService: BookService) { }
 
@@ -33,7 +33,6 @@ export class BookComponent implements OnInit {
   addBook(){
       if(this.bookForm.valid) {
       console.log(this.bookForm.value);
-      //this.books.push(this.bookForm.value);
       return this.bookService.addBook(this.bookForm.value, this.id).subscribe (data=> {
           this.getBooks();
       });

@@ -23,16 +23,9 @@ export class BookService {
         return this.httpClient.get(this.SERVER_URL + 'books');
   }
 
-  addBook(book: {title: string, category: string, description: string}, id:number){
-    console.log(book);
+  addBook(book: {id: number, title: string, category: string, description: string}, id:number){
     book.id = id;
     return this.httpClient.post(this.SERVER_URL + 'books', book);
-  }
-
-
-  private handleError(response: Response): Observable<any> {
-        let errorMessage = `${response.status} - ${response.statusText}`;
-        return Observable.throw(errorMessage);
   }
 
 }
