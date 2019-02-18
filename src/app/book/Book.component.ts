@@ -1,17 +1,21 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, NgForm } from '@angular/forms';
+import{Component, ViewChild, OnInit}from '@angular/core';
+import {FormBuilder, FormGroup, FormGroupDirective, Validators}from '@angular/forms';
 
-import { Book } from '../models/Book.model';
-import { BookService } from '../service/BookService.service';
+import {Book}from '../models/Book.model';
+import {BookService}from '../service/BookService.service';
 
 @Component({
-  selector: 'app-book',
-  templateUrl: './Book.component.html',
-  styleUrls: ['./Book.component.css']
+selector: 'app-book',
+templateUrl: './Book.component.html',
+styleUrls: ['./Book.component.css']
 })
 
 
 export class BookComponent implements OnInit {
+
+  @ViewChild(FormGroupDirective)
+  formGroupDirective: FormGroupDirective;
+
   public bookForm: FormGroup;
   submitted = false;
   books: any[]= [];
@@ -21,15 +25,11 @@ export class BookComponent implements OnInit {
   }
 
   ngOnInit() {
-        this.createBookComponenet();
-  }
-
-  public createBookComponenet() {
-       this.bookForm = this.formBuilder.group({
-            title: ['', [Validators.required, Validators.maxLength(30)]],
-            category: ['', Validators.required],
-            description: ['', [Validators.required]]
-        });
+      this.bookForm = this.formBuilder.group({
+      title: ['', [Validators.required, Validators.maxLength(30)]],
+      category: ['', Validators.required],
+      description: ['', [Validators.required]]
+    });
   }
 
   public hasError = (controlName: string, errorName: string) =>{
@@ -54,8 +54,6 @@ export class BookComponent implements OnInit {
 
   public reset() {
     this.bookForm.reset();
-    this.createBookComponenet();
+    this.formGroupDirective.resetForm();
   }
-
-
 }

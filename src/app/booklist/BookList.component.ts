@@ -8,6 +8,7 @@ import { BookService } from '../service/BookService.service';
   templateUrl: './BookList.component.html',
   styleUrls: ['./BookList.component.css']
 })
+
 export class BookListComponent implements OnInit {
 
   @Input() books: Book[] = [];
