@@ -21,7 +21,11 @@ export class BookComponent implements OnInit {
   }
 
   ngOnInit() {
-        this.bookForm = this.formBuilder.group({
+        this.createBookComponenet();
+  }
+
+  public createBookComponenet() {
+       this.bookForm = this.formBuilder.group({
             title: ['', [Validators.required, Validators.maxLength(30)]],
             category: ['', Validators.required],
             description: ['', [Validators.required]]
@@ -50,6 +54,7 @@ export class BookComponent implements OnInit {
 
   public reset() {
     this.bookForm.reset();
+    this.createBookComponenet();
   }
 
 
