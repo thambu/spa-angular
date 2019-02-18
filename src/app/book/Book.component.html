@@ -11,9 +11,8 @@
     <div class="controles-container">
     <mat-form-field>
       <input matInput placeholder="Title"
-             formControlName="title" id="title" maxlength="30"
-             name = "title"/>
-        <mat-error *ngIf="hasError('title', 'required')">Title is required</mat-error>
+             formControlName="title" maxlength="30" required/>
+        <mat-error *ngIf="(bookForm.get('title').dirty || bookForm.get('title').touched) && hasError('title', 'required')">Title is required</mat-error>
     </mat-form-field>
 
     <mat-form-field>
@@ -25,14 +24,16 @@
         <mat-option value="comedy">Comedy</mat-option>
         <mat-option value="sport">Sport</mat-option>
       </mat-select>
+      <mat-error *ngIf="(bookForm.controls['category'].dirty || bookForm.controls['category'].touched) && hasError('category', 'required')">Category is required</mat-error>
     </mat-form-field>
 
     <mat-form-field>
        <textarea matInput placeholder="Description" formControlName="description"
                  id="description"
-                 name = "description">
+                 name = "description" required>
        </textarea>
-      <mat-error *ngIf="hasError('description', 'required')">Description is required</mat-error>
+      <mat-error *ngIf="(bookForm.controls['description'].dirty || bookForm.controls['description'].touched) &&
+                hasError('description', 'required')">Description is required</mat-error>
     </mat-form-field>
 
       <div class="button">

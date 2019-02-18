@@ -11,13 +11,13 @@ import { DataService } from './service/Data.service';
 
 import { AppComponent } from './app.component';
 import { BookComponent } from './book/Book.component';
-import { BooklistComponent } from './booklist/BookList.component';
+import { BookListComponent } from './booklist/BookList.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BookComponent,
-    BooklistComponent
+    BookListComponent
   ],
   imports: [
     BrowserModule,

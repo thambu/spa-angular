@@ -8,7 +8,7 @@ import { BookService } from '../service/BookService.service';
   templateUrl: './BookList.component.html',
   styleUrls: ['./BookList.component.css']
 })
-export class BooklistComponent implements OnInit {
+export class BookListComponent implements OnInit {
 
   @Input() books: Book[] = [];
 
@@ -16,7 +16,6 @@ export class BooklistComponent implements OnInit {
 
   ngOnInit() {
     this.bookService.getBooks().subscribe((data : Book[])=>{
-        console.log(data);
         this.books = data;
     })
   }

@@ -9,14 +9,16 @@ import { BookService } from '../service/BookService.service';
   templateUrl: './Book.component.html',
   styleUrls: ['./Book.component.css']
 })
-export class BookComponent implements OnInit {
 
-  bookForm: FormGroup;
+
+export class BookComponent implements OnInit {
+  public bookForm: FormGroup;
   submitted = false;
   books: any[]= [];
   id: number = 1;
 
-  constructor(private formBuilder: FormBuilder, private bookService: BookService) { }
+  constructor(private formBuilder: FormBuilder, private bookService: BookService) {
+  }
 
   ngOnInit() {
         this.bookForm = this.formBuilder.group({
@@ -30,20 +32,25 @@ export class BookComponent implements OnInit {
     return this.bookForm.controls[controlName].hasError(errorName);
   }
 
-  addBook(){
+  public addBook(){
       if(this.bookForm.valid) {
-      console.log(this.bookForm.value);
       return this.bookService.addBook(this.bookForm.value, this.id).subscribe (data=> {
           this.getBooks();
       });
      }
     }
 
-  getBooks() {
+  public getBooks() {
    this.bookService.getBooks().subscribe((data : Book[])=>{
-        console.log(data);
         this.books = data;
         this.id = data.length + 1;
+        this.reset();
     })
   }
+
+  public reset() {
+    this.bookForm.reset();
+  }
+
+
 }
