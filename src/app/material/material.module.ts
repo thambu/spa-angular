@@ -16,7 +16,7 @@ import * as Material from '@angular/material/';
     Material.MatCardModule
 
   ],
-  exports : [
+  exports: [
     Material.MatFormFieldModule,
     Material.MatInputModule,
     Material.MatSelectModule,

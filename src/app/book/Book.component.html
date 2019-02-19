@@ -1,52 +1,51 @@
 <div class="container">
 
-<mat-toolbar>
+  <mat-toolbar>
     <span class="fill-remaining-space"></span>
     <span>Add Book</span>
     <span class="fill-remaining-space"></span>
   </mat-toolbar>
 
-<form class="book-form" novalidate [formGroup]="bookForm" (ngSubmit) = "addBook(bookForm)"
-      fxLayout="column wrap" fxLayoutAlign="center" fxLayoutGap="10px">
+  <form class="book-form" novalidate [formGroup]="bookForm" (ngSubmit)="addBook(bookForm)" fxLayout="column wrap"
+    fxLayoutAlign="center" fxLayoutGap="10px">
     <div class="controles-container">
-    <mat-form-field>
-      <input matInput placeholder="Title"
-             formControlName="title" maxlength="30" required/>
-        <mat-error *ngIf="(bookForm.get('title').dirty || bookForm.get('title').touched) && hasError('title', 'required')">Title is required</mat-error>
-    </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Title" formControlName="title" maxlength="30" required />
+        <mat-error
+          *ngIf="(bookForm.get('title').dirty || bookForm.get('title').touched) && hasError('title', 'required')">Title
+          is required</mat-error>
+      </mat-form-field>
 
-    <mat-form-field>
-      <mat-select placeholder="Select" formControlName="category"
-                  id="category"
-                  name = "category">
-        <mat-option selected>-- Select --</mat-option>
-        <mat-option value="drama">Drama</mat-option>
-        <mat-option value="comedy">Comedy</mat-option>
-        <mat-option value="sport">Sport</mat-option>
-      </mat-select>
-      <mat-error *ngIf="(bookForm.controls['category'].dirty || bookForm.controls['category'].touched) && hasError('category', 'required')">Category is required</mat-error>
-    </mat-form-field>
+      <mat-form-field>
+        <mat-select placeholder="Select" formControlName="category" id="category" name="category">
+          <mat-option selected>-- Select --</mat-option>
+          <mat-option value="drama">Drama</mat-option>
+          <mat-option value="comedy">Comedy</mat-option>
+          <mat-option value="sport">Sport</mat-option>
+        </mat-select>
+        <mat-error
+          *ngIf="(bookForm.controls['category'].dirty || bookForm.controls['category'].touched) && hasError('category', 'required')">
+          Category is required</mat-error>
+      </mat-form-field>
 
-    <mat-form-field>
-       <textarea matInput placeholder="Description" formControlName="description"
-                 id="description"
-                 name = "description" required>
+      <mat-form-field>
+        <textarea matInput placeholder="Description" formControlName="description" id="description" name="description"
+          required>
        </textarea>
-      <mat-error *ngIf="(bookForm.controls['description'].dirty || bookForm.controls['description'].touched) &&
+        <mat-error *ngIf="(bookForm.controls['description'].dirty || bookForm.controls['description'].touched) &&
                 hasError('description', 'required')">Description is required</mat-error>
-    </mat-form-field>
+      </mat-form-field>
 
       <div class="button">
-          <mat-card-actions>
-              <button mat-raised-button>Add</button>
-          </mat-card-actions>
+        <mat-card-actions>
+          <button mat-raised-button>Add</button>
+        </mat-card-actions>
       </div>
-     </div>
+    </div>
 
-</form>
+  </form>
 </div>
 <br>
 <br>
 <br>
-<app-booklist [books] = books></app-booklist>
-
+<app-booklist [books]=books></app-booklist>

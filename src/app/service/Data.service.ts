@@ -7,12 +7,12 @@ import { InMemoryDbService } from 'angular-in-memory-web-api'
 })
 
 
-export class DataService implements InMemoryDbService{
+export class DataService implements InMemoryDbService {
 
   constructor() { }
 
-  createDb(){
-   let  books =  [];
-   return {books};
+  createDb() {
+    let books = [];
+    return { books };
   }
 }

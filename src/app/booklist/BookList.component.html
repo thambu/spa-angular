@@ -1,16 +1,16 @@
-<div *ngIf = "(books.length > 0)" class="container">
+<div *ngIf="(books.length > 0)" class="container">
 
   <mat-toolbar>
-  <span class="fill-remaining-space"></span>
-  <span>Book List {{books.length}}</span>
-  <span class="fill-remaining-space"></span>
-</mat-toolbar>
+    <span class="fill-remaining-space"></span>
+    <span>Book List {{books.length}}</span>
+    <span class="fill-remaining-space"></span>
+  </mat-toolbar>
 
 
 
-    <mat-card class="table" *ngFor = "let book of books">
-     <mat-card-title>Title : {{book.title}} ({{book.category}})</mat-card-title>
-     <mat-card-content>Description : {{book.description}}</mat-card-content>
-    </mat-card>
+  <mat-card class="table" *ngFor="let book of books">
+    <mat-card-title>Title : {{book.title}} ({{book.category}})</mat-card-title>
+    <mat-card-content>Description : {{book.description}}</mat-card-content>
+  </mat-card>
 
 </div>

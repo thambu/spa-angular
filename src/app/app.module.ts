@@ -1,9 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule, FormsModule  } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { HttpClientModule  } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { MaterialModule } from './material/material.module';
 
@@ -21,13 +21,13 @@ import { BookListComponent } from './booklist/BookList.component';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule ,
+    HttpClientModule,
     BrowserAnimationsModule,
     MaterialModule,
     ReactiveFormsModule,
     FormsModule,
     InMemoryWebApiModule.forRoot(DataService)
-],
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
