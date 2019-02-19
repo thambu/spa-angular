@@ -1,12 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers, Response } from '@angular/http';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
-
-import { Book } from '../models/Book.model';
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +10,7 @@ import { Book } from '../models/Book.model';
 
 export class BookService {
 
-  SERVER_URL: string = "http://localhost:8080/api/";
-  private headers = new Headers({ 'Content-Type': 'application/json' });
+  SERVER_URL = 'http://localhost:8080/api/';
 
   constructor(private httpClient: HttpClient) { }
 

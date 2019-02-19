@@ -1,14 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormBuilder, FormGroup, Validators, NgForm } from '@angular/forms';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { Component } from '@angular/core';
 import * as Material from '@angular/material/';
 import { HttpClientModule } from '@angular/common/http';
 
-import { BookComponent } from './Book.component';
-import { BookListComponent } from '../booklist/BookList.component';
+import { BookComponent } from './book.component';
+import { BookListComponent } from '../booklist/book-list.component';
 
 describe('BookComponent', () => {
   let component: BookComponent;

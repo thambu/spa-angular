@@ -2,7 +2,7 @@ import { Component, ViewChild, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormGroupDirective, Validators } from '@angular/forms';
 
 import { Book } from '../models/Book.model';
-import { BookService } from '../service/BookService.service';
+import { BookService } from '../service/book-service.service';
 
 @Component({
   selector: 'app-book',

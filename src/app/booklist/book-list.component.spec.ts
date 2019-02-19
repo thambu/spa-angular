@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import * as Material from '@angular/material/';
 import { HttpClientModule } from '@angular/common/http';
 
-import { BookListComponent } from './BookList.component';
+import { BookListComponent } from './book-list.component';
 
 describe('BookListComponent', () => {
   let component: BookListComponent;

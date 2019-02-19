@@ -7,11 +7,11 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { MaterialModule } from './material/material.module';
 
-import { DataService } from './service/Data.service';
+import { DataService } from './service/data.service';
 
 import { AppComponent } from './app.component';
-import { BookComponent } from './book/Book.component';
-import { BookListComponent } from './booklist/BookList.component';
+import { BookComponent } from './book/book.component';
+import { BookListComponent } from './booklist/book-list.component';
 
 @NgModule({
   declarations: [
